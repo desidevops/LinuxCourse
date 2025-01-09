@@ -1,0 +1,13 @@
+
+### 📝 **Assignment**  
+Create a directory structure like this:  
+
+```
+my_project/
+├── scripts/
+├── docs/
+└── data/
+```
+
+Inside the `docs` folder, create a file `readme.txt` 📝 with the content:  
+**"Welcome to Linux!"** 🌟

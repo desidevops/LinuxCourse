@@ -1,0 +1,5 @@
+
+### 📋 **Assignment:**
+
+ **Cron Job Automation**:
+   - Create a cron job that backs up a directory to another location at regular intervals. You can use `tar` or `rsync` to back up the directory.

@@ -1,0 +1,190 @@
+### Lecture 4: Advanced Shell Scripting and System Automation 🖥️🔧
+
+**Objective:** Explore advanced shell scripting techniques and automation tools for managing complex tasks, such as log rotation, system monitoring, and backup strategies. 🚀
+
+---
+
+#### 1. **Log Rotation and File Management 🗂️**
+
+**Objective:** Learn how to manage and rotate log files using shell scripts and cron jobs. 🔄
+
+**Topics:**
+
+1. **Why Log Rotation?**  
+   Log files can grow large over time, which could consume disk space. Log rotation helps to manage file sizes by compressing or deleting old logs. 📉
+
+2. **Logrotate Tool**  
+   `logrotate` is a system tool designed to handle log file rotation automatically. It is usually configured via the `/etc/logrotate.conf` file. ⚙️
+
+3. **Custom Log Rotation Script**  
+   You can create custom log rotation scripts for specific applications or services.
+
+**Example Commands:**
+
+- **Checking Log File Size**:  
+   Example:  
+   ```bash
+   du -sh /var/log/myapp.log
+   ```
+
+- **Rotating Logs with `logrotate`**:  
+   Example of rotating logs with `logrotate`:  
+   ```bash
+   /usr/sbin/logrotate /etc/logrotate.conf
+   ```
+
+4. **Manual Log Rotation Script**  
+   A simple log rotation script might compress logs older than 30 days and delete those older than 90 days. 🔒
+
+**Practical Task:**
+
+- Create a script to rotate logs in a directory by compressing logs older than 30 days. 🗓️
+- Schedule it using a cron job to run monthly. 📅
+
+---
+
+#### 2. **System Monitoring and Alerts 📊**
+
+**Objective:** Use shell scripting to monitor system performance, resources, and services. Set up automated alerts when resources exceed thresholds. ⚠️
+
+**Topics:**
+
+1. **System Resource Monitoring**  
+   Monitor CPU, memory, disk usage, and network activity with commands like `top`, `free`, `df`, and `vmstat`. 📈
+
+2. **Disk Space Monitoring**  
+   Check for disk space issues using `df` and `du`. 💾
+
+3. **CPU and Memory Monitoring**  
+   Use `top`, `htop`, or `ps` to monitor CPU and memory usage. 💻
+
+4. **Automated Alerts**  
+   Use `mail` or `sendmail` to send an email when certain thresholds are met (e.g., when disk usage exceeds 80%). 📧
+
+**Example Commands:**
+
+- **Check CPU Usage**:  
+   ```bash
+   top -n 1 | grep Cpu
+   ```
+
+- **Disk Usage Alert**  
+   Example: Send an alert if disk usage exceeds 90%:
+   ```bash
+   df -h | grep '/dev/sda1' | awk '{ if ($5 > 90) print "Disk space critical!" }'
+   ```
+
+**Practical Task:**
+
+- Write a script that checks CPU and disk usage. If CPU usage exceeds 90% or disk usage exceeds 80%, send an email alert. 📥
+
+---
+
+#### 3. **Backup Strategies and Automation 🔒💾**
+
+**Objective:** Explore advanced backup strategies using shell scripts and cron jobs, and understand how to automate backups with encryption and versioning. 🔄
+
+**Topics:**
+
+1. **Backup Types:**
+   - **Full Backup**: Backs up all files and directories. 💼
+   - **Incremental Backup**: Only backs up changes since the last backup. ⬆️
+   - **Differential Backup**: Backs up changes since the last full backup. 📦
+
+2. **Backup Tools**:  
+   Use `rsync`, `tar`, and `cp` for backing up files. 🛠️
+
+3. **Automated Backups**:  
+   Automate backups with cron jobs. Add encryption for sensitive data using `gpg` or `openssl`. 🔐
+
+4. **Backup Versioning**:  
+   Create multiple versions of backups to keep historical copies of your files. 🗂️
+
+**Example Commands:**
+
+- **Full Backup with `tar`**:  
+   ```bash
+   tar -czf /path/to/backup/full_backup_$(date +\%Y\%m\%d).tar.gz /home/user/data
+   ```
+
+- **Incremental Backup with `rsync`**:  
+   ```bash
+   rsync -av --link-dest=/path/to/last_full_backup /home/user/data /path/to/incremental_backup_$(date +\%Y\%m\%d)
+   ```
+
+**Practical Task:**
+
+- Create a backup strategy script that performs:
+   - Full backups every Sunday 🌞
+   - Incremental backups for the rest of the week 📆
+   - Sends email alerts for successful or failed backups 📧
+
+---
+
+#### 4. **Security Automation and Monitoring 🔐**
+
+**Objective:** Learn to automate basic security tasks, such as updating the system, checking for open ports, and monitoring user activity. 👮‍♂️
+
+**Topics:**
+
+1. **Automating System Updates**  
+   Set up automated system updates using cron jobs to ensure your system is always up to date. 🔄
+
+   Example:  
+   ```bash
+   sudo apt-get update && sudo apt-get upgrade -y
+   ```
+
+2. **Monitoring Open Ports**  
+   Use `netstat` or `ss` to monitor open ports. 🌐
+
+   Example:  
+   ```bash
+   netstat -tuln
+   ```
+
+3. **User Activity Monitoring**  
+   Use `last` or `w` to check user login history. 👤
+
+   Example:  
+   ```bash
+   last -n 10
+   ```
+
+4. **Automated Security Checks**  
+   Set up cron jobs to automatically check for open ports or unusual login attempts. 🚨
+
+**Practical Task:**
+
+- Write a script that checks for open ports and sends an alert if there are suspicious services running. 🚨
+- Schedule the script using cron jobs to run daily. 📅
+
+---
+
+#### 5. **Automation with Ansible (Optional) ⚙️**
+
+**Objective:** Introduce Ansible for system automation and configuration management. 🧑‍💻
+
+**Topics:**
+
+1. **What is Ansible?**  
+   Ansible is an open-source automation tool for configuration management, application deployment, and task automation. 🔄
+
+2. **Basic Ansible Commands**:  
+   Learn to use Ansible for tasks like package installation, service management, and configuration deployment. ⚡
+
+3. **Playbooks and Roles**:  
+   Ansible uses playbooks (YAML files) to automate tasks. 📄
+
+**Example Commands:**
+
+- **Running a Simple Playbook**:  
+   ```bash
+   ansible-playbook -i hosts playbook.yml
+   ```
+
+**Practical Task (Optional):**
+
+- Create an Ansible playbook that installs and configures Apache on a remote server. 🌍
+
+---

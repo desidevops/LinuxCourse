@@ -1,0 +1,16 @@
+
+### **Assignment:**
+
+1. **Log Rotation Script**:  
+   Write a script that rotates logs in a specific directory, compressing logs older than 30 days and deleting logs older than 90 days. 🔄
+
+2. **System Monitoring Script**:  
+   Write a script that checks the CPU usage and disk usage. If either exceeds 80%, send an email alert to the administrator. ⚠️
+
+3. **Backup Strategy Script**:  
+   Create a backup script that performs:
+   - Full backups every Sunday 🌞
+   - Incremental backups for the rest of the week 📆
+   - Sends email alerts for successful or failed backups 📧
+
+---

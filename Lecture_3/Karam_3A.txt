@@ -1,0 +1,6 @@
+
+### 📋 **Assignment:**
+
+1. **Shell Script Challenge**:
+   - Write a shell script that takes two arguments: a filename and a string.
+   - The script should check if the file exists and contains the string. If the string is found, output "String found!", otherwise "String not found!".

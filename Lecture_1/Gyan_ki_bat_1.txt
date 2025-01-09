@@ -1,0 +1,86 @@
+---
+
+## 🖥️ **Lecture 1: Hands-On with Linux Basics**
+
+---
+
+### 1️⃣ **Getting Started with the Linux Terminal**  
+**Objective:** Familiarize yourself with the terminal and basic commands. 🖱️
+
+**Commands to Practice:**  
+- `pwd` - Print the current working directory 🏠  
+- `ls` - List directory contents 📂  
+  - `ls -l` (detailed view) 📜  
+  - `ls -a` (hidden files) 👻  
+- `cd` - Change directory 🔄  
+  - Example: `cd /home`  
+- `clear` - Clear the terminal screen 🧹  
+
+**Practical Task:**  
+- Navigate to the `/home` directory 📁, list its contents 📝, and then return to your home directory using `cd ~` 🔙.  
+
+---
+
+### 2️⃣ **File and Directory Management**  
+**Objective:** Create, view, and delete files and directories. 🗂️
+
+**Commands to Practice:**  
+- `mkdir` - Create a new directory 📂  
+  - Example: `mkdir my_project`  
+- `touch` - Create an empty file 📝  
+  - Example: `touch file1.txt`  
+- `cat` - View the content of a file 📖  
+  - Example: `cat file1.txt`  
+- `rm` - Delete a file ❌  
+  - Example: `rm file1.txt`  
+- `rmdir` - Remove an empty directory 🧺  
+  - Example: `rmdir my_project`  
+
+**Practical Task:**  
+- Create a directory named `practice` 🏗️, create a file named `notes.txt` inside it 📝, write content using `echo "Hello, Linux" > notes.txt`, and then view the file using `cat notes.txt` 👀.
+
+---
+
+### 3️⃣ **File Permissions and Ownership**  
+**Objective:** Understand file permissions and change them. 🔐
+
+**Commands to Practice:**  
+- `ls -l` - View permissions of files and directories 🔍  
+- `chmod` - Change file permissions 🔧  
+  - Example: `chmod 755 script.sh`  
+- `chown` - Change ownership of a file 👨‍💻  
+  - Example: `sudo chown user:group file1.txt`  
+
+**Practical Task:**  
+- Create a file `test.sh` 🖥️, view its permissions 🔑, and change its permissions to `755` 🔄.
+
+---
+
+### 4️⃣ **Viewing and Searching Files**  
+**Objective:** Learn how to view and search through files effectively 🔎
+
+**Commands to Practice:**  
+- `cat` - Display file content 📄  
+- `less` - View file content one page at a time 📑  
+- `grep` - Search for a pattern within a file 🧠  
+  - Example: `grep "Linux" notes.txt`  
+
+**Practical Task:**  
+- Write a list of commands in `commands.txt` 📋 and use `grep` to search for the word `"Linux"` 🔍.
+
+---
+
+### 5️⃣ **Basic Networking Commands**  
+**Objective:** Get a brief introduction to networking tools 🌐
+
+**Commands to Practice:**  
+- `ping` - Check connectivity to a server 🌍  
+  - Example: `ping google.com`  
+- `ifconfig` or `ip addr` - Display network configuration 🌐  
+- `curl` - Fetch data from a URL 🌎  
+  - Example: `curl http://example.com`  
+
+**Practical Task:**  
+- Use `ping` to test your connection to `google.com` 🌍 and display your IP address using `ifconfig` or `ip addr` 🖧.
+
+---

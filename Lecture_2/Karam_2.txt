@@ -1,0 +1,15 @@
+### 📝 **Assignment:**
+
+1. **Create a Project Structure:**
+   - Create a project directory `web_project/` with subdirectories: `frontend/`, `backend/`, and `database/`.
+   - Inside `frontend/`, create an HTML file `index.html` with some sample content.
+   - Inside `backend/`, create a file `app.py` with a simple Python script (`print("Hello World")`).
+   - Inside `database/`, create a file `data.sql` with sample SQL content (`CREATE TABLE users (id INT, name VARCHAR(100));`).
+   - Set the appropriate file permissions and ownership.
+
+2. **Create and Manage Users:**
+   - Add two new users: `alice` and `bob`.
+   - Create a new group `admins` and add `alice` to this group.
+   - Change the group ownership of `web_project/` to `admins`.
+
+---

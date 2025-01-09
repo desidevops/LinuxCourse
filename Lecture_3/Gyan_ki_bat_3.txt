@@ -1,0 +1,251 @@
+### 📝 **Lecture 3: Linux Shell Scripting and Automation**  
+
+**Objective:** Learn the fundamentals of shell scripting, automate tasks, and explore more advanced shell features.
+
+---
+
+#### 1. 🖥️ **Introduction to Shell Scripting**
+
+**Objective:** Understand the basic structure of shell scripts and how to execute them.
+
+**Commands to Practice:**
+
+1. **Creating a shell script**:  
+   Use a text editor like `nano`, `vim`, or `vi` to create a shell script.  
+   Example: `nano script.sh`
+
+2. **Make a script executable**:  
+   Use the `chmod` command to make your script executable.  
+   Example: `chmod +x script.sh`
+
+3. **Executing a shell script**:  
+   Execute a shell script either by specifying its relative path or using `./`.  
+   Example: `./script.sh`
+
+4. **Shell script structure**:  
+   Every shell script should start with the shebang (`#!`) followed by the path to the shell. For example:  
+   ```bash
+   #!/bin/bash
+   ```
+
+5. **Comments**:  
+   You can add comments to your script using the `#` symbol. Comments are ignored during execution.
+
+   Example:
+   ```bash
+   # This is a comment
+   echo "Hello, World!"
+   ```
+
+**Practical Task:**
+
+- 📝 Create a simple shell script that prints "Hello, Linux!" to the screen.
+- ✅ Make the script executable and run it.
+
+---
+
+#### 2. 💻 **Variables and User Input**
+
+**Objective:** Learn how to use variables and take user input in shell scripts.
+
+**Commands to Practice:**
+
+1. **Variables**:  
+   Declare variables in shell scripts.  
+   Example:  
+   ```bash
+   my_var="Hello"
+   echo $my_var
+   ```
+
+2. **User input**:  
+   Use the `read` command to take input from the user.  
+   Example:  
+   ```bash
+   echo "Enter your name:"
+   read name
+   echo "Hello, $name!"
+   ```
+
+3. **Arithmetic operations**:  
+   Perform arithmetic operations in shell scripts.  
+   Example:  
+   ```bash
+   num1=5
+   num2=10
+   sum=$((num1 + num2))
+   echo "The sum is: $sum"
+   ```
+
+4. **String operations**:  
+   Perform basic string manipulations.  
+   Example:  
+   ```bash
+   str="Hello"
+   echo ${str^^}   # Convert string to uppercase
+   echo ${str,,}   # Convert string to lowercase
+   ```
+
+**Practical Task:**
+
+- 📝 Write a script that asks for a user's name and age, then outputs a greeting with the user's name and calculates the year they were born.
+
+---
+
+#### 3. 🔄 **Control Structures**
+
+**Objective:** Learn how to use conditionals and loops in shell scripting.
+
+**Commands to Practice:**
+
+1. **If-Else Statements**:  
+   Use `if`, `else`, and `elif` for conditional statements.  
+   Example:  
+   ```bash
+   if [ $age -ge 18 ]; then
+       echo "You are an adult."
+   else
+       echo "You are a minor."
+   fi
+   ```
+
+2. **Case Statements**:  
+   Use `case` for multiple conditional checks.  
+   Example:  
+   ```bash
+   case $day in
+       Monday) echo "Start of the week!" ;;
+       Friday) echo "Weekend is near!" ;;
+       *) echo "It's a regular day." ;;
+   esac
+   ```
+
+3. **Loops (for, while, until)**:  
+   Use loops to iterate over values or run commands multiple times.
+   - **For loop**:  
+     ```bash
+     for i in {1..5}; do
+         echo "Iteration $i"
+     done
+     ```
+
+   - **While loop**:  
+     ```bash
+     count=1
+     while [ $count -le 5 ]; do
+         echo "Iteration $count"
+         ((count++))
+     done
+     ```
+
+   - **Until loop**:  
+     ```bash
+     count=1
+     until [ $count -gt 5 ]; do
+         echo "Iteration $count"
+         ((count++))
+     done
+     ```
+
+**Practical Task:**
+
+- 📝 Write a script that uses a loop to print the numbers 1 through 10.
+- 🔄 Modify the script to print only even numbers between 1 and 10.
+
+---
+
+#### 4. ⚙️ **Functions in Shell Scripts**
+
+**Objective:** Understand how to define and use functions in shell scripts.
+
+**Commands to Practice:**
+
+1. **Defining a function**:  
+   Use the `function_name()` syntax to define a function.  
+   Example:  
+   ```bash
+   greet() {
+       echo "Hello, $1!"
+   }
+   greet "Alice"
+   ```
+
+2. **Returning values from a function**:  
+   Use `return` to return an exit status from the function.  
+   Example:  
+   ```bash
+   add() {
+       result=$(( $1 + $2 ))
+       echo $result
+   }
+   sum=$(add 5 10)
+   echo "The sum is: $sum"
+   ```
+
+3. **Function arguments**:  
+   Access function arguments using `$1`, `$2`, etc.  
+   Example:  
+   ```bash
+   greet() {
+       echo "Hello, $1! You are $2 years old."
+   }
+   greet "Alice" 30
+   ```
+
+**Practical Task:**
+
+- 📝 Write a script that defines a function to calculate the factorial of a number and use it in your script.
+
+---
+
+#### 5. 🗓️ **Automating Tasks with Cron Jobs**
+
+**Objective:** Learn how to schedule tasks using `cron` for automation.
+
+**Commands to Practice:**
+
+1. **Crontab**:  
+   The `crontab` command is used to schedule recurring tasks.  
+   Example:  
+   ```bash
+   crontab -e  # Edit the crontab file
+   ```
+
+2. **Cron syntax**:  
+   The syntax for crontab follows this format:
+   ```bash
+   * * * * * /path/to/command
+   - - - - -
+   | | | | | 
+   | | | | +---- Day of the week (0 - 6) (Sunday=0)
+   | | | +------ Month (1 - 12)
+   | | +-------- Day of the month (1 - 31)
+   | +---------- Hour (0 - 23)
+   +------------ Minute (0 - 59)
+   ```
+
+3. **Listing cron jobs**:  
+   You can list your scheduled cron jobs using:  
+   ```bash
+   crontab -l
+   ```
+
+4. **Examples**:  
+   - Schedule a task to run every day at 3 AM:  
+     ```bash
+     0 3 * * * /path/to/script.sh
+     ```
+
+   - Schedule a task to run every Monday at 5 PM:  
+     ```bash
+     0 17 * * 1 /path/to/script.sh
+     ```
+
+**Practical Task:**
+
+- 🗓️ Schedule a cron job to run a backup script every day at midnight.
+- 🕑 Use `cron` to schedule a script that checks disk space every hour.
+
+---
+
+---

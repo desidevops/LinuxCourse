@@ -1,0 +1,161 @@
+### 🎓 **Lecture 2: Advanced Linux Basics and System Management**
+
+**Objective:** Deepen understanding of the Linux command line with advanced file manipulation, user management, and process management.
+
+---
+
+#### 1. 🗂️ **File Manipulation and Redirection**
+
+**Objective:** Learn how to manipulate file content, use pipes, and redirect output.
+
+**Commands to Practice:**
+
+1. **`cp`** - Copy files and directories.  
+   Example: `cp file1.txt /home/user/`  
+   Example (copying directory): `cp -r my_project /home/user/`
+
+2. **`mv`** - Move or rename files and directories.  
+   Example: `mv file1.txt file2.txt`  
+   Example (move directory): `mv my_project /home/user/`
+
+3. **`echo`** - Output text to the terminal or a file.  
+   Example: `echo "Linux is fun!" > output.txt`  
+   Example (append): `echo "More content" >> output.txt`
+
+4. **`cat`, `tac`, `head`, `tail`** - View content with options to reverse, view top/bottom lines, etc.  
+   Example (reverse): `tac file.txt`  
+   Example (first 10 lines): `head file.txt`  
+   Example (last 10 lines): `tail file.txt`  
+   Example (last N lines): `tail -n 5 file.txt`
+
+5. **`tee`** - Redirect output to a file while displaying it on the terminal.  
+   Example: `echo "Hello World" | tee output.txt`
+
+**Practical Task:**
+
+- Copy a file to another directory, rename it, and then view the top and bottom content of the file.
+- Use `echo` to append text to a file, and verify the output with `cat`.
+
+---
+
+#### 2. 👤 **User and Group Management**
+
+**Objective:** Learn how to create and manage users and groups.
+
+**Commands to Practice:**
+
+1. **`useradd`** - Create a new user.  
+   Example: `sudo useradd john`
+
+2. **`passwd`** - Change a user’s password.  
+   Example: `sudo passwd john`
+
+3. **`usermod`** - Modify a user’s account.  
+   Example: `sudo usermod -aG sudo john` (adds the user to the sudo group)
+
+4. **`groupadd`** - Create a new group.  
+   Example: `sudo groupadd devs`
+
+5. **`groups`** - List groups a user is part of.  
+   Example: `groups john`
+
+6. **`chgrp`** - Change group ownership of a file.  
+   Example: `sudo chgrp devs file1.txt`
+
+**Practical Task:**
+
+- Create a new user and a group.
+- Add the user to the group and verify it using the `groups` command.
+- Change the group ownership of a file to the newly created group.
+
+---
+
+#### 3. 🖥️ **Process Management**
+
+**Objective:** Learn how to monitor and control system processes.
+
+**Commands to Practice:**
+
+1. **`ps`** - Display current processes.  
+   Example: `ps aux` (view all running processes)
+
+2. **`top`** - Monitor real-time system processes.  
+   Example: `top` (interactive process viewer)
+
+3. **`kill`** - Terminate a process by PID.  
+   Example: `kill 1234` (where 1234 is the process ID)
+
+4. **`killall`** - Terminate processes by name.  
+   Example: `killall firefox`
+
+5. **`bg`, `fg`** - Move processes between background and foreground.  
+   Example: `bg` (send process to background)  
+   Example: `fg` (bring process to foreground)
+
+6. **`nohup`** - Run a command in the background, even after logging out.  
+   Example: `nohup python3 script.py &`
+
+**Practical Task:**
+
+- Launch a process (e.g., a text editor), then use `ps` and `top` to monitor it.
+- Terminate the process using the `kill` command.
+
+---
+
+#### 4. 💾 **Disk Management**
+
+**Objective:** Understand how to manage disk space and partitions.
+
+**Commands to Practice:**
+
+1. **`df`** - Display disk space usage.  
+   Example: `df -h` (human-readable format)
+
+2. **`du`** - Display disk usage of files and directories.  
+   Example: `du -sh my_project/` (total size of the directory)
+
+3. **`fdisk`** - Partition a disk.  
+   Example: `sudo fdisk /dev/sda`
+
+4. **`mount`, `umount`** - Mount and unmount file systems.  
+   Example (mount): `sudo mount /dev/sda1 /mnt`  
+   Example (unmount): `sudo umount /mnt`
+
+5. **`lsblk`** - List available block devices.  
+   Example: `lsblk`
+
+**Practical Task:**
+
+- Use `df` to check disk usage and `du` to check the size of a specific directory.
+- List the block devices on your system with `lsblk`.
+
+---
+
+#### 5. 🔄 **System Updates and Package Management**
+
+**Objective:** Learn how to update the system and manage packages.
+
+**Commands to Practice:**
+
+1. **`apt update`** - Update package lists (Debian/Ubuntu-based).  
+   Example: `sudo apt update`
+
+2. **`apt upgrade`** - Upgrade installed packages.  
+   Example: `sudo apt upgrade`
+
+3. **`apt install`** - Install a package.  
+   Example: `sudo apt install vim`
+
+4. **`dpkg`** - Manage individual Debian packages.  
+   Example: `sudo dpkg -i package.deb`
+
+5. **`apt remove`** - Remove a package.  
+   Example: `sudo apt remove vim`
+
+**Practical Task:**
+
+- Update your package list and upgrade any available packages.
+- Install and remove a package (e.g., Vim).
+
+---
+
